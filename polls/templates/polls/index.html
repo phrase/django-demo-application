@@ -1,0 +1,30 @@
+{% extends "polls/base.html" %}
+{% load i18n %}
+{% load phrase_i18n %}
+
+{% block title %}{% trans "Recent Polls" %}{% endblock %}
+
+{% block content %}
+
+<div class="page-header">
+    <h1>{% trans "Recent Polls" %}</h1>
+</div>
+
+{% if latest_poll_list %}
+    <table class="table table-striped">
+    {% for poll in latest_poll_list %}
+        <tr>
+            <td>
+                <p><strong><a href="{% url 'polls:detail' poll.id %}">{{ poll.question }}</a></strong></p>
+            </td>
+            <td>
+                <a href="{% url 'polls:detail' poll.id %}" class="btn pull-right">{% trans "View" %}</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+{% else %}
+    <p>{% trans "No polls are available." %}</p>
+{% endif %}
+
+{% endblock %}

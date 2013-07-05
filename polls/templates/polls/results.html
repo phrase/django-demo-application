@@ -1,0 +1,20 @@
+{% extends "polls/base.html" %}
+{% load i18n %}
+{% load phrase_i18n %}
+
+{% block title %}{% trans "Poll Results" %}{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>{{ poll.question }}</h1>
+</div>
+
+<dl class="dl-horizontal">
+    {% for choice in poll.choice_set.all %}
+        <dt>{{ choice.choice_text }}</dt>
+        <dd>{{ choice.votes }} vote{{ choice.votes|pluralize }}</dd>
+    {% endfor %}
+</dl>
+
+<p><a href="{% url 'polls:detail' poll.id %}" class="btn">{% trans "Vote again?" %}</a></p>
+{% endblock %}

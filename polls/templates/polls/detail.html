@@ -1,0 +1,33 @@
+{% extends "polls/base.html" %}
+{% load i18n %}
+{% load phrase_i18n %}
+
+{% block title %}{{ poll.question }}{% endblock %}
+
+{% block content %}
+<div class="page-header">
+  <h1>{{ poll.question }}</h1>
+</div>
+
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+
+<form action="{% url 'polls:vote' poll.id %}" method="post" class="form-vertical">
+    {% csrf_token %}
+
+    {% for choice in poll.choice_set.all %}
+    <div class="control-group">
+        <div class="controls">            
+
+            <label class="radio" for="choice{{ forloop.counter }}">
+                <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ choice.id }}" />
+                {{ choice.choice_text }}
+            </label>
+        </div>
+    </div>
+    {% endfor %}
+
+    <div class="form-actions">
+        <input type="submit" value="{% trans "Vote" %}", class="btn btn-primary" />
+    </div>
+</form>
+{% endblock %}

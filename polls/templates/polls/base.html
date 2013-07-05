@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% load url from future %}
+{% load bootstrap_toolkit %}
+{% load localeurl_tags %}
+{% load i18n %}
+{% load phrase_i18n %}
+
+<html lang="en">
+<head>
+    <title>{% block title %}Demo{% endblock %} - My Django Application</title>
+
+    {% bootstrap_stylesheet_tag %}
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+    {% bootstrap_javascript_tag %}
+
+    <link rel="stylesheet" href="{% static "css/compiled/base.css" %}" />
+
+    {% phrase_javascript %}
+</head>
+<body>
+
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="brand" href="{% url 'root' %}">My Django Application</a>
+                <ul class="nav">
+                    <li><a href="{% url 'root' %}">{% trans "Home" %}</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            {% trans "Select language:" %}
+                            {% get_current_language as LANGUAGE_CODE %}
+                            {{ LANGUAGE_CODE }}
+                            <b class="caret"></b>
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            {% get_language_info_list for LANGUAGES as languages %}
+                            {% for language in languages %}
+                                <li{% if language.code == LANGUAGE_CODE %} class="active"{% endif %}><a href="{% locale_url language.code "root" %}">{{ language.name_local }} ({{ language.code }})</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div id="content" class="span8">
+                {% block content %}{% endblock %}
+            </div>
+
+            <div id="sidebar" class="span4">
+                <div class="well">
+                    <h4>{% trans "Sidebar Headline" %}</h4>
+                    <p>{% trans "Sidebar Content" %}</p>
+                </div>
+
+                {% block sidebar %}{% endblock %}
+            </div>
+        </div>
+    </div>
+
+    <footer class="row">
+        <div class="container">
+            <div class="span6">
+                <p>&copy; PhraseApp</p>
+            </div>
+            <div class="span6">
+                <p>
+                    {% blocktrans %}This is a demo for using <a href="https://phraseapp.com" target="_blank">PhraseApp</a> with <a href="https://www.djangoproject.com/" target="_blank">Django</a>{% endblocktrans %}
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+    
