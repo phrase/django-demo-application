@@ -7,11 +7,13 @@ This is an exmple application that uses [django-phrase](https://github.com/phras
 
 ## Installation
 
-First, install a recent Django version as shown in in the [install guide](https://docs.djangoproject.com/en/1.8/intro/install/).
-
 Install the required dependencies::
 
     pip install -r requirements.txt
+
+Apply migrations:
+
+    python manage.py migrate
 
 Add your PhraseApp Project ID to ``settings.py``::
 
