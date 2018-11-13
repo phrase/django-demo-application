@@ -29,6 +29,6 @@ Browse to localhost:8000/polls to see the editor in action.
 
 ## Further reading
 
-* [PhraseApp](http://docs.phraseapp.com/)
-* [PhraseApp Documentation](http://docs.phraseapp.com/)
+* [PhraseApp](https://phraseapp.com/)
+* [PhraseApp Documentation](https://help.phraseapp.com/)
 * [PhraseApp Support](https://phraseapp.com/en/contact)
