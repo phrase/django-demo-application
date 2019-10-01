@@ -1,8 +1,8 @@
-# Django PhraseApp Demo Application
+# Django Phrase Demo Application
 
-[PhraseApp](https://phraseapp.com) makes it easy and fast to localize you mobile app or website.
+[Phrase](https://phraseapp.com) makes it easy and fast to localize you mobile app or website.
 
-This is an exmple application that uses [django-phrase](https://github.com/phrase/django-phrase) to integrate the PhraseApp In-Context-Editor with a basic Django application.
+This is an exmple application that uses [django-phrase](https://github.com/phrase/django-phrase) to integrate the Phrase In-Context-Editor with a basic Django application.
 
 
 ## Installation
@@ -15,7 +15,7 @@ Apply migrations:
 
     python manage.py migrate
 
-Add your PhraseApp Project ID to ``settings.py``::
+Add your Phrase Project ID to ``settings.py``::
 
     PHRASE_PROJECT_ID = 'PHRASE_PROJECT_ID'
 
@@ -23,12 +23,12 @@ Start the django application::
 
     python manage.py runserver
 
-That's it! You should now be able to see the demo application with the integrated PhraseApp In-Context-Editor.
+That's it! You should now be able to see the demo application with the integrated Phrase In-Context-Editor.
 
 Browse to localhost:8000/polls to see the editor in action.
 
 ## Further reading
 
-* [PhraseApp](https://phraseapp.com/)
-* [PhraseApp Documentation](https://help.phraseapp.com/)
-* [PhraseApp Support](https://phraseapp.com/en/contact)
+* [Phrase](https://phrase.com/)
+* [Phrase Documentation](https://help.phrase.com/)
+* [Phrase Support](https://phrase.com/en/contact)
