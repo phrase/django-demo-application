@@ -1,4 +1,12 @@
-# Django Phrase Demo Application
+# django-phrase Demo (DEPRECATED)
+
+![maintenance-status](https://img.shields.io/badge/maintenance-deprecated-red.svg)
+
+> This repository for the demo app of Phrase Strings In-Context Editor with `django-phrase` has been deprecated and is no longer maintained. Pleas refer to the [django-phrase](https://github.com/phrase/django-phrase) repository, where the demo has been moved to and will be maintained. 
+ 
+<hr />
+
+## Introduction
 
 [Phrase](https://phraseapp.com) makes it easy and fast to localize you mobile app or website.
 
